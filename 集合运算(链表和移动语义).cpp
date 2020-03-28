@@ -96,6 +96,8 @@ Set &Set::operator=(Set &&copy) noexcept
 }
 void Set::clear()
 {
+	if (!root)
+		return;
 	node *p = root->next;
 	while (p)
 	{
