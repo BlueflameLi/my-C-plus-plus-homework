@@ -14,9 +14,9 @@ public:
 	void insert(int);
 	vector<int>::iterator find(int x);
 	vector<int>::iterator erase(vector<int>::iterator);
-	Set operator*(Set B);
-	Set operator+(Set B);
-	Set operator-(Set B);
+	Set operator*(Set &B);
+	Set operator+(Set &B);
+	Set operator-(Set &B);
 };
 
 Set::Set()
@@ -59,7 +59,7 @@ vector<int>::iterator Set::find(int x)
 {
 	return std::find(v.begin(), v.end(), x);
 }
-Set Set::operator*(Set B)
+Set Set::operator*(Set &B)
 {
 	Set C;
 	vector<int>::iterator itr;
@@ -70,7 +70,7 @@ Set Set::operator*(Set B)
 	}
 	return C;
 }
-Set Set::operator+(Set B)
+Set Set::operator+(Set &B)
 {
 	Set C;
 	vector<int>::iterator itr;
@@ -80,7 +80,7 @@ Set Set::operator+(Set B)
 		C.insert(*itr);
 	return C;
 }
-Set Set::operator-(Set B)
+Set Set::operator-(Set &B)
 {
 	Set C;
 	vector<int>::iterator itr;
