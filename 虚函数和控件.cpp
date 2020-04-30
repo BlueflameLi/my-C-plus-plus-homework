@@ -9,7 +9,7 @@ protected:
 	const string label;
 
 public:
-	CUIControl(string label) : label(label) {}
+	explicit CUIControl(const string &label) : label(label) {}
 	virtual void Clicked() const = 0; //定义为纯虚函数
 	virtual ~CUIControl() {}
 };
@@ -17,7 +17,7 @@ public:
 class CMenu : public CUIControl
 {
 public:
-	CMenu(string label) : CUIControl(label) {}
+	explicit CMenu(const string &label) : CUIControl(label) {}
 	void Clicked() const
 	{
 		cout << "menu-" << label << " Clicked" << endl;
@@ -27,7 +27,7 @@ public:
 class CButton : public CUIControl
 {
 public:
-	CButton(string label) : CUIControl(label) {}
+	explicit CButton(const string &label) : CUIControl(label) {}
 	void Clicked() const
 	{
 		cout << "button-" << label << " Clicked" << endl;
